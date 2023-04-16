@@ -5,14 +5,14 @@ from models.pet import Pet
 
 
 def save(vet):
-    sql = "INSERT INTO authors (first_name, last_name) VALUES (%s, %s) RETURNING *"
+    sql = "INSERT INTO vets (first_name, last_name) VALUES (%s, %s) RETURNING *"
     values = [vet.first_name, vet.last_name]
     results = run_sql(sql, values)
     id = results[0]['id']
     vet.id = id
     return vet
 
-def select_all():
+def select_all_vets():
     vets = []
 
     sql = "SELECT * FROM vets"
@@ -20,7 +20,7 @@ def select_all():
 
     for row in results:
         vet = Vet(row['first_name'], row['last_name'], row['id'] )
-        vet.append(vet)
+        vets.append(vet)
     return vets
 
 def select(id):
@@ -31,7 +31,7 @@ def select(id):
 
     if results:
         result = results[0]
-        author = Vet(result['first_name'], result['last_name'], result['id'] )
+        vet = Vet(result['first_name'], result['last_name'], result['id'] )
     return vet
 
 def delete_all():

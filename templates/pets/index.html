@@ -2,7 +2,15 @@
 
 {% block content %}
 <h2>Pets</h2>
-    <!-- {% for pet in all_pets  %}
+    {% for pet in all_pets  %}
+    <div>
+        <p>{{pet.name}}</p>
+        <p>{{pet.species}}</p>
+        <p>DOB: {{pet.date_of_birth}}</p>
+        <p>Owner: {{pet.owner.first_name}} {{pet.owner.last_name}}</p>
+        <p>Vet: {{pet.vet.first_name}} {{pet.vet.last_name}}</p>
+        <p>Notes: {{pet.treatment_notes}}</p>
+      </div>
         
-    {% endfor %} -->
+    {% endfor %}
 {% endblock content %}

@@ -10,11 +10,13 @@ def home():
 
 @pets_blueprint.route("/pets")
 def pets():
-    return render_template('/pets/index.html')
+    all_pets = pet_repository.select_all_pets()
+    return render_template('/pets/index.html', all_pets = all_pets)
 
 @pets_blueprint.route("/vets")
 def vets():
-    return render_template('/vets/index.html')
+    all_vets = vet_repository.select_all_vets()
+    return render_template('/vets/index.html', all_vets = all_vets)
 
 @pets_blueprint.route("/add-pet")
 def add_pet():

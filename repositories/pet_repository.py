@@ -1,19 +1,19 @@
 from db.run_sql import run_sql
 
 from models.pet import Pet
-from models.vet import Vet
 import repositories.vet_repository as vet_repository
+import repositories.owner_repository as owner_repository
 
 
 def save(pet):
-    sql = "INSERT INTO pets (name, species, date_of_birth, owner_id, treatment_notes) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [pet.name, pet.species, pet.date_of_birth, pet.owner.id, pet.treatment_notes]
+    sql = "INSERT INTO pets (name, species, date_of_birth, vet_id, owner_id, treatment_notes) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes]
     results = run_sql(sql, values)
     id = results[0]['id']
     pet.id = id
     return pet
 
-def select_all():
+def select_all_pets():
     pets = []
 
     sql = "SELECT * FROM pets"
@@ -21,7 +21,8 @@ def select_all():
 
     for row in results:
         vet = vet_repository.select(row['vet_id'])
-        pet = Pet(row['name'], vet, row['species'], row['date_of_birth'], row['owner_id'], row['treatment_notes'], row['id'] )
+        owner = owner_repository.select(row['owner_id'])
+        pet = Pet(row['name'], row['species'], row['date_of_birth'], owner, vet, row['treatment_notes'], row['id'] )
         pets.append(pet)
     return pets
 
@@ -48,6 +49,6 @@ def delete(id):
 
 
 def update(pet):
-    sql = "UPDATE pet SET (name, species, date_of_birth, owner_id, treatment_notes) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pet.name, pet.species, pet.date_of_birth, pet.owner.id, pet.treatment_notes]
+    sql = "UPDATE pet SET (name, species, date_of_birth, vet_id, owner_id, treatment_notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes]
     run_sql(sql, values)
