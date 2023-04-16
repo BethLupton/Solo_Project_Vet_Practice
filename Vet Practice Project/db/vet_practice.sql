@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS vets;
+DROP TABLE IF EXISTS owners;
 
 CREATE TABLE vets (
   id SERIAL PRIMARY KEY,
@@ -12,7 +13,15 @@ CREATE TABLE pets (
   name VARCHAR(255),
   species VARCHAR(255),
   date_of_birth VARCHAR(255),
-  owner_details VARCHAR(255),
   treatment_notes TEXT,
-  vets_id INT NOT NULL REFERENCES vets(id)
+  vets_id INT NOT NULL REFERENCES vets(id),
+  owners_id INT NOT NULL REFERENCES owners(id),
+);
+
+CREATE TABLE owners (
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  contact_number VARCHAR(11),
+  
 );
