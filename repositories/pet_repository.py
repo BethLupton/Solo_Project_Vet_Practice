@@ -38,11 +38,11 @@ def select(id):
 
 
 def delete_all():
-    sql = "DELETE  FROM pets"
+    sql = "DELETE FROM pets"
     run_sql(sql)
 
 def delete(id):
-    sql = "DELETE  FROM pets WHERE id = %s"
+    sql = "DELETE FROM pets WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
