@@ -20,8 +20,8 @@ def select_all_owners():
     results = run_sql(sql)
 
     for row in results:
-        owner = Owner(row['first_name'], row['last_name'], row['contact_number'] )
-        owner.append(owner)
+        owner = Owner(row['first_name'], row['last_name'], row['contact_number'], row['id'] )
+        owners.append(owner)
     return owners
 
 def select(id):
@@ -32,7 +32,7 @@ def select(id):
 
     if results:
         result = results[0]
-        owner = Owner(result['first_name'], result['last_name'], result['id'] )
+        owner = Owner(result['first_name'], result['last_name'], result['contact_number'], result['id'] )
     return owner
 
 def delete_all():

@@ -49,13 +49,13 @@ def update(vet):
     run_sql(sql, values)
 
 def pets(vet):
-    pet = []
+    pets = []
 
     sql = "SELECT * FROM pets WHERE vet_id = %s"
     values = [vet.id]
     results = run_sql(sql, values)
 
     for row in results:
-        pets = Pet(row['name'], vet, row['species'], row['date_of_birth'], row['owner_id'], row['treatment_notes'], row['id'] )
+        pet = Pet(row['name'], vet, row['species'], row['date_of_birth'], row['owner_id'], row['treatment_notes'], row['id'] )
         pets.append(pet)
     return pets

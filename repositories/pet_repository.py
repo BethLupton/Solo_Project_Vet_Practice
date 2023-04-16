@@ -34,7 +34,7 @@ def select(id):
 
     if result is not None:
         vet = vet_repository.select(result['vet_id'])
-        pet = Pet(result['name'], vet, result['species'], result['date_of_birth'], result['owner_id'], result['treatment_notes'], result['id'] )
+        pet = Pet(result['name'], result['species'], result['date_of_birth'], result['owner_id'], result['vet_id'], result['treatment_notes'], result['id'] )
     return pet
 
 
@@ -47,8 +47,8 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-
 def update(pet):
-    sql = "UPDATE pet SET (name, species, date_of_birth, vet_id, owner_id, treatment_notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes]
+    sql = "UPDATE pets SET (name, species, date_of_birth, vet_id, owner_id, treatment_notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes, pet.id]
+    print(values)
     run_sql(sql, values)

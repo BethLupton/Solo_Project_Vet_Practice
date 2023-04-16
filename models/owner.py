@@ -5,3 +5,6 @@ class Owner:
         self.pets = []
         self.contact_number = contact_number
         self.id = id
+
+    def full_name(self):
+        return self.first_name +  ' ' + self.last_name

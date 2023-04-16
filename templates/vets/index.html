@@ -5,6 +5,11 @@
 {% for vet in all_vets %}
   <div>
     <p>{{vet.first_name}} {{vet.last_name}}</p>
+    <ul>
+      {% for pet in vet.get_pets() %}
+      <li>{{pet.name}}</li>
+      {% endfor %}
+    </ul>
   </div>
   {% endfor %}
 {% endblock %}

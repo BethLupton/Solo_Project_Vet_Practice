@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/pets/{{pet.id}}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Pet Name" value="{{ pet.name }}" required autofocus>
+      </div>
+    
+      <div>
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" placeholder="Cat" value="{{ pet.species }}" required autofocus>
+      </div>
+    
+      <div>
+        <label for="date_of_birth">DOB:</label>
+        <input type="text" id="date_of_birth" name="date_of_birth" placeholder="01-01-2000" value="{{ pet.date_of_birth }}" required>
+      </div>
+    
+      <div>
+        <label for="owner">Owner:</label>
+        <select id="owner" name="owner_id" value="{{ pet.owner.id }}">
+          {% for owner in all_owners %}
+            <option value="{{ owner.id }}">{{ owner.full_name() }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    
+      <div>
+        <label for="vet">Vet:</label>
+        <select id="vet" name="vet_id" value="{{ pet.vet.id }}">
+          {% for vet in all_vets %}
+            <option value="{{ vet.id }}">{{ vet.full_name() }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    
+      <div>
+        <label for="treatment_notes">Notes:</label>
+        <input type="text" id="treatment_notes" name="treatment_notes" value="{{ pet.treatment_notes }}">
+      </div>
+
+
+    <button type="submit">Update Pet</button>
+
+</form>
+
+{% endblock %}
