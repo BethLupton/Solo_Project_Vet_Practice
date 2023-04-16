@@ -37,7 +37,6 @@ def select(id):
         pet = Pet(result['name'], result['species'], result['date_of_birth'], result['owner_id'], result['vet_id'], result['treatment_notes'], result['id'] )
     return pet
 
-
 def delete_all():
     sql = "DELETE FROM pets"
     run_sql(sql)

@@ -5,18 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css' ) }}">
-  <title>Random</title>
+  <title>Paws, Scales & Tails</title>
+  <img src="/static/imgs/main_logo.jpg" alt="dog_and_cat_outline">
 </head>
+<h1>Paws, Scales & Tails</h1>
+
 <body>
   <header>
     <a href="/">Home</a>
     <a href="/pets">Pets</a>
     <a href="/vets">Vets</a>
-    <a href="/add-pet">Add Pet</a>
+    <a href="/owners">Owners</a>
   </header>
   <div class="container">
     {% block content %}
     {% endblock %}
   </div>
 </body>
+<footer>
+  <p>1313 Mockingbird Lane,
+    Glasgow,
+    G36 8LL</p>
+  <p>0141 131 134</p>
+
+  <p>Beth Lupton ©</p>
+</footer>
 </html>

@@ -40,6 +40,7 @@ def delete_all():
 
 def delete(id):
     sql = "DELETE  FROM vets WHERE id = %s"
+    print(id)
     values = [id]
     run_sql(sql, values)
 

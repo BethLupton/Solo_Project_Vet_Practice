@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2>Pets</h2>
+<a href="/pets/add">Add Pet</a>
     {% for pet in all_pets  %}
     <div>
         <p>{{pet.name}}</p>
@@ -10,7 +11,9 @@
         <p>Owner: {{pet.owner.first_name}} {{pet.owner.last_name}}</p>
         <p>Vet: {{pet.vet.first_name}} {{pet.vet.last_name}}</p>
         <p>Notes: {{pet.treatment_notes}}</p>
-        <a href="pets/{{pet.id}}/edit">Edit</a>
+        <form action="pets/{{pet.id}}/edit">
+          <button>Edit</button>
+        </form>
 
         <form action="/pets/{{pet.id}}/delete" method="POST">
           <button>Delete</button>

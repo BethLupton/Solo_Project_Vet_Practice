@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Vets</h1>
+<h2>Vets</h2>
+<a href="/vets/add">Add Vet</a>
 {% for vet in all_vets %}
   <div>
     <p>{{vet.first_name}} {{vet.last_name}}</p>
@@ -10,6 +11,16 @@
       <li>{{pet.name}}</li>
       {% endfor %}
     </ul>
+    <form action="vets/{{vet.id}}/edit">
+      <button>Edit</button>
+      </form>
+    {% if vet.get_pets()|length == 0 %}
+    <form action="/vets/{{vet.id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+    {% else %}
+      <button disabled>Delete</button>
+    {% endif %}
   </div>
   {% endfor %}
 {% endblock %}

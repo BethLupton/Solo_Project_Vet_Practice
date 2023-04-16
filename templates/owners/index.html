@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Owners</h2>
+<a href="/owners/add">Add Owner</a>
+{% for owner in all_owners %}
+  <div>
+    <p>{{owner.first_name}} {{owner.last_name}}</p>
+    <p>{{owner.contact_number}}</p>
+    <ul>
+      {% for pet in owner.get_pets() %}
+      <li>{{pet.name}}</li>
+      {% endfor %}
+    </ul>
+    <form action="owners/{{owner.id}}/edit">
+      <button>Edit</button>
+    </form>
+    <form action="/owners/{{owner.id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+  </div>
+  {% endfor %}
+{% endblock %}
