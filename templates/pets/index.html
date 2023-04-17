@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2 class="sub-head">Pets</h2>
+<a class="add-option" href="/pets/add">Add Pet</a>
 <div class="pet-card-container">
     {% for pet in all_pets  %}
     <div class="pet-card">
@@ -17,7 +18,7 @@
         <div>Notes: {{pet.treatment_notes}}</div>
   
         <hr />
-        <div class="pet-card-actions">
+        <div class="card-actions">
           <form action="pets/{{pet.id}}/edit">
             <button>Edit</button>
           </form>
@@ -30,5 +31,5 @@
        
     {% endfor %}
   </div>
-    <a href="/pets/add">Add Pet</a>
+
 {% endblock content %}

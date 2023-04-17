@@ -1,26 +1,29 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <h2 class="sub-head">Vets</h2>
+<a class="add-option" href="/vets/add">Add Vet</a>
 {% for vet in all_vets %}
-  <div>
-    <p>{{vet.first_name}} {{vet.last_name}}</p>
-    <ul>
-      {% for pet in vet.get_pets() %}
-      <li>{{pet.name}}</li>
-      {% endfor %}
-    </ul>
+<div class="vet-card">
+  <div class="vet-card-heading">{{vet.first_name}} {{vet.last_name}}</div>
+  <h4>Assigned Pets:</h4>
+  <ul>
+    {% for pet in vet.get_pets() %}
+    <li>{{pet.name}}</li>
+    {% endfor %}
+  </ul>
+
+  <hr />
+  <div class="card-actions">
     <form action="vets/{{vet.id}}/edit">
       <button>Edit</button>
-      </form>
+    </form>
     {% if vet.get_pets()|length == 0 %}
     <form action="/vets/{{vet.id}}/delete" method="POST">
       <button>Delete</button>
     </form>
     {% else %}
-      <button disabled>Delete</button>
+    <button disabled>Delete</button>
     {% endif %}
   </div>
-  {% endfor %}
-  <a href="/vets/add">Add Vet</a>
-{% endblock %}
+</div>
+{% endfor %} {% endblock %}

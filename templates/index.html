@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
-<h2 class="sub-head">Today's Appointments</h2>
-<input type="date" id="date">
+<h2 class="sub-head">Overview</h2>
 
-{% for pet in all_pets %}
-<ul>
-    {% if pet.checked_in %}
-    <li>{{pet.name}} {{pet.vet.first_name}} {{pet.vet.last_name}} Checked In: {{pet.checked_in}}</li>
-    {% endif %}
-</ul>
-{% endfor %}
+<div class="primary-info">
+    <div class="primary-info-key">
+        Total pets registered:
+    </div>
+    <div class="primary-info-value">
+        {{ all_pets|length }}
+    </div>
+</div>
+
+<h3>Currently checked in pets:</h3>
+<ol class="home-page-checked-in">
+    {% for pet in all_pets %}
+        {% if pet.checked_in %}
+            <li>
+                <span class="home-page-checked-in-pet">{{pet.name}}</span> is seeing <span class="home-page-checked-in-vet">{{pet.vet.first_name}} {{pet.vet.last_name}}</span></li>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ol>
 
 </body>
 {% endblock %}

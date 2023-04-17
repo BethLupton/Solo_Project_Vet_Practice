@@ -1,16 +1,19 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <h2 class="sub-head">Owners</h2>
+<a class="add-option" href="/owners/add">Add Owner</a>
 {% for owner in all_owners %}
-  <div>
-    <p>{{owner.first_name}} {{owner.last_name}}</p>
-    <p>{{owner.contact_number}}</p>
-    <ul>
-      {% for pet in owner.get_pets() %}
-      <li>{{pet.name}}</li>
-      {% endfor %}
-    </ul>
+<div class="owner-card">
+  <div class="vet-card-heading">{{owner.first_name}} {{owner.last_name}}</div>
+  <p>Contact Number: {{owner.contact_number}}</p>
+  <h4>Assigned Pets:</h4>
+  <ul>
+    {% for pet in owner.get_pets() %}
+    <li>{{pet.name}}</li>
+    {% endfor %}
+  </ul>
+  <hr />
+  <div class="card-actions">
     <form action="owners/{{owner.id}}/edit">
       <button>Edit</button>
     </form>
@@ -18,6 +21,5 @@
       <button>Delete</button>
     </form>
   </div>
-  {% endfor %}
-  <a href="/owners/add">Add Owner</a>
-{% endblock %}
+</div>
+{% endfor %} {% endblock %}

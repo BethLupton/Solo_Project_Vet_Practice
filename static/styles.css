@@ -54,7 +54,7 @@ nav li a:hover {
     }
 
 .sub-head {
-    text-align: center;
+    text-align: left;
     font-size: 2rem;
     font-style: bold;
 }
@@ -90,6 +90,48 @@ nav li a:hover {
     font-size: 1rem;
 }
 
+.primary-info {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.primary-info-key {
+    font-size: 24px;
+    font-weight: bold;
+}
+.primary-info-value {
+    font-size: 48px;
+    font-weight: bold;
+    color: #8ACB80;
+}
+
+.home-page-checked-in {
+    font-size: 18px;
+}
+
+.home-page-checked-in-pet {
+    font-style: italic;
+    font-weight: bold;
+    color: #8ACB80;
+}
+
+.home-page-checked-in-vet {
+    font-style: italic;
+    font-weight: bold;
+    color: plum;
+}
+
+.add-option {
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 1px solid purple;
+    background-color: plum;
+    padding: 5px;
+    border-radius: 3px;
+}
+
 .pet-card-container {
     display: flex;
     flex-wrap: wrap;
@@ -106,7 +148,6 @@ nav li a:hover {
     color: #fff;
 }
 
-
 .pet-card-header {
     display: flex;
     justify-content: space-between;
@@ -117,10 +158,47 @@ nav li a:hover {
     margin: 0;
 }
 
-.pet-card-actions {
+.vet-card {
+    border: 2px solid plum;
+    border-radius: 10px;
+    width: 40%;
+    margin: 20px;
+    padding: 5px;
+    background-color: #8ACB80;
+    color: #fff;
+}
+
+.vet-card-heading {
+    font-size: 1.5rem;
+    margin: 0;
+    text-decoration: underline;
+}
+
+.owner-card {
+    border: 2px solid plum;
+    border-radius: 10px;
+    width: 40%;
+    margin: 20px;
+    padding: 5px;
+    background-color: #8ACB80;
+    color: #fff;
+}
+
+.owner-card-heading {
+    font-size: 1.5rem;
+    margin: 0;
+    text-decoration: underline;
+}
+
+.card-actions {
     display: flex;
     justify-content: space-between;
 }
+
+/* .pet-card-actions {
+    display: flex;
+    justify-content: space-between;
+} */
 
 /* .date_picker {
 background: transparent;

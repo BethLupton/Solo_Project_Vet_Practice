@@ -34,7 +34,9 @@ def create_pet():
     owner = owner_repository.select(request.form['owner_id'])
     vet = vet_repository.select(request.form['vet_id'])
     treatment_notes = request.form['treatment_notes']
-    checked_in = request.form['checked_in']
+    checked_in = False
+    if 'checked_in' in request.form:
+        checked_in = True
     pet = Pet(name, species, date_of_birth, owner, vet, treatment_notes, checked_in)
     pet_repository.save(pet)
     return redirect('/pets')
@@ -60,7 +62,7 @@ def update_pet(id):
     owner = owner_repository.select(request.form['owner_id'])
     treatment_notes = request.form['treatment_notes']
     checked_in = False
-    if request.form['checked_in'] in request.form:
+    if 'checked_in' in request.form:
         checked_in = True
     vet = vet_repository.select(request.form['vet_id'])
     pet = Pet(name, species, date_of_birth, owner, vet, treatment_notes, checked_in, id)
