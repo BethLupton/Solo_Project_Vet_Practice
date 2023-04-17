@@ -26,15 +26,15 @@ owner_repository.save(owner2)
 owner3 = Owner("Roger", "O'Donnell", '07458588579')
 owner_repository.save(owner3)
 
-pet1 = Pet("King Grumpy Paws", "Cat", "21-04-2020", owner1, vet1, "Extremely Grumpy")
+pet1 = Pet("King Grumpy Paws", "Cat", "21-04-2020", owner1, vet1, "Extremely Grumpy", True)
 pet_repository.save(pet1)
 
-pet2 = Pet("Cutie Pie", "Dog", "05-05-2004", owner2, vet2, "Has a strange odour")
+pet2 = Pet("Cutie Pie", "Dog", "05-05-2004", owner2, vet2, "Has a strange odour", False)
 pet_repository.save(pet2)
 
-pet3 = Pet("The Lizard of Oz", "Reptile", "01-01-2023", owner1, vet1, "Good natured")
+pet3 = Pet("The Lizard of Oz", "Reptile", "01-01-2023", owner1, vet1, "Good natured", False)
 pet_repository.save(pet3)
 
-pet4 = Pet("Squawkers", "Bird", "31-10-2-13", owner3, vet1, "Is a bit feisty")
+pet4 = Pet("Squawkers", "Bird", "31-10-2-13", owner3, vet1, "Is a bit feisty", True)
 pet_repository.save(pet4)
 

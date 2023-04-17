@@ -6,8 +6,8 @@ import repositories.owner_repository as owner_repository
 
 
 def save(pet):
-    sql = "INSERT INTO pets (name, species, date_of_birth, vet_id, owner_id, treatment_notes) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes]
+    sql = "INSERT INTO pets (name, species, date_of_birth, vet_id, owner_id, treatment_notes, checked_in) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes, pet.checked_in]
     results = run_sql(sql, values)
     id = results[0]['id']
     pet.id = id
@@ -22,7 +22,7 @@ def select_all_pets():
     for row in results:
         vet = vet_repository.select(row['vet_id'])
         owner = owner_repository.select(row['owner_id'])
-        pet = Pet(row['name'], row['species'], row['date_of_birth'], owner, vet, row['treatment_notes'], row['id'] )
+        pet = Pet(row['name'], row['species'], row['date_of_birth'], owner, vet, row['treatment_notes'], row['checked_in'], row['id'] )
         pets.append(pet)
     return pets
 
@@ -34,7 +34,7 @@ def select(id):
 
     if result is not None:
         vet = vet_repository.select(result['vet_id'])
-        pet = Pet(result['name'], result['species'], result['date_of_birth'], result['owner_id'], result['vet_id'], result['treatment_notes'], result['id'] )
+        pet = Pet(result['name'], result['species'], result['date_of_birth'], result['owner_id'], vet, result['treatment_notes'], result['checked_in'], result['id'] )
     return pet
 
 def delete_all():
@@ -47,7 +47,7 @@ def delete(id):
     run_sql(sql, values)
 
 def update(pet):
-    sql = "UPDATE pets SET (name, species, date_of_birth, vet_id, owner_id, treatment_notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes, pet.id]
+    sql = "UPDATE pets SET (name, species, date_of_birth, vet_id, owner_id, treatment_notes, checked_in) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pet.name, pet.species, pet.date_of_birth, pet.vet.id, pet.owner.id, pet.treatment_notes, pet.checked_in, pet.id]
     print(values)
     run_sql(sql, values)

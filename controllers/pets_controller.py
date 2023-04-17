@@ -33,7 +33,8 @@ def create_pet():
     owner = owner_repository.select(request.form['owner_id'])
     vet = vet_repository.select(request.form['vet_id'])
     treatment_notes = request.form['treatment_notes']
-    pet = Pet(name, species, date_of_birth, owner, vet, treatment_notes)
+    checked_in = request.form['checked_in']
+    pet = Pet(name, species, date_of_birth, owner, vet, treatment_notes, checked_in)
     pet_repository.save(pet)
     return redirect('/pets')
 
@@ -52,13 +53,18 @@ def delete_pet(id):
 @pets_blueprint.route("/pets/<id>", methods=['POST'])
 def update_pet(id):
     pet = pet_repository.select(id);
-    pet.name = request.form['name']
-    pet.species = request.form['species']
-    pet.date_of_birth = request.form['date_of_birth']
-    pet.owner = owner_repository.select(request.form['owner_id'])
-    pet.vet = vet_repository.select(request.form['vet_id'])
-    pet.treatment_notes = request.form['treatment_notes']
+    name = request.form['name']
+    species = request.form['species']
+    date_of_birth = request.form['date_of_birth']
+    owner = owner_repository.select(request.form['owner_id'])
+    treatment_notes = request.form['treatment_notes']
+    checked_in = False
+    if request.form['checked_in'] in request.form:
+        checked_in = True
+    vet = vet_repository.select(request.form['vet_id'])
+    pet = Pet(name, species, date_of_birth, owner, vet, treatment_notes, checked_in, id)
     pet_repository.update(pet)
+
     return redirect('/pets')
 # vets
 
