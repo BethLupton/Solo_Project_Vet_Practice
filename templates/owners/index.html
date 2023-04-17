@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Owners</h2>
-<a href="/owners/add">Add Owner</a>
+<h2 class="sub-head">Owners</h2>
 {% for owner in all_owners %}
   <div>
     <p>{{owner.first_name}} {{owner.last_name}}</p>
@@ -20,4 +19,5 @@
     </form>
   </div>
   {% endfor %}
+  <a href="/owners/add">Add Owner</a>
 {% endblock %}

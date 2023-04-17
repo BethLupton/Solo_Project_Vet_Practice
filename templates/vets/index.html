@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Vets</h2>
-<a href="/vets/add">Add Vet</a>
+<h2 class="sub-head">Vets</h2>
 {% for vet in all_vets %}
   <div>
     <p>{{vet.first_name}} {{vet.last_name}}</p>
@@ -23,4 +22,5 @@
     {% endif %}
   </div>
   {% endfor %}
+  <a href="/vets/add">Add Vet</a>
 {% endblock %}

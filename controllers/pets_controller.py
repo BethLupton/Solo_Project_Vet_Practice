@@ -10,7 +10,8 @@ pets_blueprint = Blueprint("Pets", __name__)
 
 @pets_blueprint.route("/")
 def home():
-    return render_template('index.html')
+    all_pets = pet_repository.select_all_pets()
+    return render_template('index.html', all_pets = all_pets)
 
 @pets_blueprint.route("/pets")
 def pets():

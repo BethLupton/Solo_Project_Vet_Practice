@@ -4,30 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css' ) }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&family=Karla:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <title>Paws, Scales & Tails</title>
-  <img src="/static/imgs/main_logo.jpg" alt="dog_and_cat_outline">
-</head>
-<h1>Paws, Scales & Tails</h1>
 
+</head>
 <body>
   <header>
-    <a href="/">Home</a>
-    <a href="/pets">Pets</a>
-    <a href="/vets">Vets</a>
-    <a href="/owners">Owners</a>
+    <div class="banner">
+      <h1 id="main-title">Paws, Scales & Tails</h1>
+      <img id="logo" src="/static/imgs/main_logo.png" alt="dog_and_cat_outline">
+    </div>
+
+    <nav>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/pets">Pets</a>
+      <a class="nav-link" href="/vets">Vets</a>
+      <a class="nav-link" href="/owners">Owners</a>
+    </nav> 
   </header>
-  <div class="container">
+
+
+  <main>
     {% block content %}
     {% endblock %}
-  </div>
-</body>
-<footer>
-  <p>1313 Mockingbird Lane,
-    Glasgow,
-    G36 8LL</p>
-  <p>0141 131 134</p>
+  </main>
 
-  <p>Beth Lupton ©</p>
-</footer>
+  <footer>
+    <p>1313 Mockingbird Lane,</p>
+    <p>Glasgow,</p>
+    <p>G36 8LL</p>
+    <p>0141 131 134</p>
+
+    <p class="trademark">Beth Lupton ©</p>
+  </footer>
+</body>
 </html>

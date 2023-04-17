@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
+<h2 class="sub-head">Today's Appointments</h2>
+<input type="date" id="date">
 
-    <input type="date" id="date">
+{% for pet in all_pets %}
+<ul>
+    {% if pet.checked_in %}
+    <li>{{pet.name}} {{pet.vet.first_name}} {{pet.vet.last_name}} Checked In: {{pet.checked_in}}</li>
+    {% endif %}
+</ul>
+{% endfor %}
 
-    <h2>Today's Appointments</h2>
-    <main>
-
-    </main>
 </body>
 {% endblock %}

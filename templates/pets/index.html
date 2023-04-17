@@ -1,25 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Pets</h2>
-<a href="/pets/add">Add Pet</a>
+<h2 class="sub-head">Pets</h2>
+<div class="pet-card-container">
     {% for pet in all_pets  %}
-    <div>
-        <p>{{pet.name}}</p>
-        <p>{{pet.species}}</p>
-        <p>DOB: {{pet.date_of_birth}}</p>
-        <p>Owner: {{pet.owner.first_name}} {{pet.owner.last_name}}</p>
-        <p>Vet: {{pet.vet.first_name}} {{pet.vet.last_name}}</p>
-        <p>Notes: {{pet.treatment_notes}}</p>
-        <p>Checked In: {{pet.checked_in}}</p>
-        <form action="pets/{{pet.id}}/edit">
-          <button>Edit</button>
-        </form>
+    <div class="pet-card">
+        <div class="pet-card-header">
+          <h3 class="pet-card-heading">{{pet.name}}</h3>
+          <div>{{pet.checked_in}}</div>
+        </div>
+        <div>Species: {{pet.species}}</div>
+        <div>DOB: {{pet.date_of_birth}}</div>
+        <div>Owner: {{pet.owner.first_name}} {{pet.owner.last_name}}</div>
+        <div>Vet: {{pet.vet.first_name}} {{pet.vet.last_name}}</div>
+        <hr />
+        <div>Notes: {{pet.treatment_notes}}</div>
+  
+        <hr />
+        <div class="pet-card-actions">
+          <form action="pets/{{pet.id}}/edit">
+            <button>Edit</button>
+          </form>
 
-        <form action="/pets/{{pet.id}}/delete" method="POST">
-          <button>Delete</button>
-        </form>
+          <form action="/pets/{{pet.id}}/delete" method="POST">
+            <button>Delete</button>
+          </form>
+        </div> 
       </div>
-        
+       
     {% endfor %}
+  </div>
+    <a href="/pets/add">Add Pet</a>
 {% endblock content %}
