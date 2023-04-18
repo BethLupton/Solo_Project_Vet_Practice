@@ -5,10 +5,15 @@
 <a class="add-option" href="/pets/add">Add Pet</a>
 <div class="pet-card-container">
     {% for pet in all_pets  %}
-    <div class="pet-card">
+    <div class="card">
         <div class="pet-card-header">
           <h3 class="pet-card-heading">{{pet.name}}</h3>
-          <div>{{pet.checked_in}}</div>
+          <!-- <div>{{pet.checked_in}}</div> -->
+          {% if pet.checked_in == True %}
+            <div class="true-false">&#10004</div>
+          {% else %}
+          <div class="true-false">&#10008</div>
+          {% endif %}
         </div>
         <div>Species: {{pet.species}}</div>
         <div>DOB: {{pet.date_of_birth}}</div>

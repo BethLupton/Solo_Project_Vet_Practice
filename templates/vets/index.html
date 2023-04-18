@@ -3,8 +3,8 @@
 <h2 class="sub-head">Vets</h2>
 <a class="add-option" href="/vets/add">Add Vet</a>
 {% for vet in all_vets %}
-<div class="vet-card">
-  <div class="vet-card-heading">{{vet.first_name}} {{vet.last_name}}</div>
+<div class="card">
+  <div class="card-heading">{{vet.first_name}} {{vet.last_name}}</div>
   <h4>Assigned Pets:</h4>
   <ul>
     {% for pet in vet.get_pets() %}

@@ -138,7 +138,7 @@ nav li a:hover {
     justify-content: center;
 }
 
-.pet-card {
+.card {
     border: 2px solid plum;
     border-radius: 10px;
     width: 40%;
@@ -158,33 +158,7 @@ nav li a:hover {
     margin: 0;
 }
 
-.vet-card {
-    border: 2px solid plum;
-    border-radius: 10px;
-    width: 40%;
-    margin: 20px;
-    padding: 5px;
-    background-color: #8ACB80;
-    color: #fff;
-}
-
-.vet-card-heading {
-    font-size: 1.5rem;
-    margin: 0;
-    text-decoration: underline;
-}
-
-.owner-card {
-    border: 2px solid plum;
-    border-radius: 10px;
-    width: 40%;
-    margin: 20px;
-    padding: 5px;
-    background-color: #8ACB80;
-    color: #fff;
-}
-
-.owner-card-heading {
+.card-heading {
     font-size: 1.5rem;
     margin: 0;
     text-decoration: underline;
@@ -193,6 +167,10 @@ nav li a:hover {
 .card-actions {
     display: flex;
     justify-content: space-between;
+}
+
+.true-false {
+    padding-right: 10px;
 }
 
 /* .pet-card-actions {
