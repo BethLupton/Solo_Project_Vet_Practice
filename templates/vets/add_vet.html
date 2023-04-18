@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Add Vet</h2>
+<div class="add-card">
 <form action="/vets/add" method="post">
 
   <div>
@@ -13,8 +15,8 @@
     <input type="text" id="last_name" name="last_name" placeholder="Last Name" required autofocus>
   </div>
 
-  <button type="submit">Add Vet</button>
+  <button class="add-button" type="submit">Submit</button>
 
 </form>
-
+</div>
 {% endblock %}

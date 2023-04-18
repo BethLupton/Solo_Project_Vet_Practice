@@ -173,6 +173,37 @@ nav li a:hover {
     padding-right: 10px;
 }
 
+.add-card {
+    border: 2px solid plum;
+    border-radius: 10px;
+    width: 35%;
+    margin: 100px;
+    padding: 5px;
+    background-color: #8ACB80;
+    color: #fff;
+    text-align: -webkit-left;
+    display: flex;
+    justify-content: center;
+}
+
+.add-button {
+    border-radius: 10px;
+    background-color: plum;
+    color: #fff;
+}
+
+.edit-button {
+    border-radius: 10px;
+    background-color: #F6E6C2;
+    color: black;
+}
+
+.delete-button {
+    border-radius: 10px;
+    background-color: #F9566E;
+    color: black;
+}
+
 /* .pet-card-actions {
     display: flex;
     justify-content: space-between;

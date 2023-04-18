@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Add Pet</h2>
+<div class="add-card">
 <form action="/pets/add" method="post">
 
   <div>
@@ -46,7 +48,7 @@
     <input type= "checkbox" id="checked_in" name="checked_in">
   </div>
 
-  <button type="submit">Add Pet</button>
+  <button class="add-button" type="submit">Submit</button>
 
 </form>
 

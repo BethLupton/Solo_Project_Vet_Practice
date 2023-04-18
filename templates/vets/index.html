@@ -15,11 +15,11 @@
   <hr />
   <div class="card-actions">
     <form action="vets/{{vet.id}}/edit">
-      <button>Edit</button>
+      <button class="edit-button">Edit</button>
     </form>
     {% if vet.get_pets()|length == 0 %}
     <form action="/vets/{{vet.id}}/delete" method="POST">
-      <button>Delete</button>
+      <button class="delete-button">Delete</button>
     </form>
     {% else %}
     <button disabled>Delete</button>

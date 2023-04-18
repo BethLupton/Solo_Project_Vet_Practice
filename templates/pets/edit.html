@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Edit Pet</h2>
+<div class="add-card">
 <form action="/pets/{{pet.id}}" method="post">
     <div>
         <label for="name">Name:</label>
@@ -45,8 +47,9 @@
         <input type= "checkbox" id="checked_in" name="checked_in" {%- if pet.checked_in %} checked {% endif %}>
       </div>
     
-    <button type="submit">Update Pet</button>
+    <button class="add-button" type="submit">Submit</button>
 
 </form>
-
+</div>
 {% endblock %}
+</div>

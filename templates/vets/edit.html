@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Edit Vet</h2>
+<div class="add-card">
 <form action="/vets/{{vet.id}}" method="post">
   <div>
     <label for="first_name">First Name:</label>
@@ -13,8 +15,9 @@
   </div>
 
 
-    <button type="submit">Update Vet</button>
+  <button class="add-button" type="submit">Submit</button>
+
 
 </form>
-
+</div>
 {% endblock %}
