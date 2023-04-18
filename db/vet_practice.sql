@@ -22,7 +22,7 @@ CREATE TABLE pets (
   date_of_birth VARCHAR(255),
   treatment_notes TEXT,
   vet_id INT NOT NULL REFERENCES vets(id),
-  owner_id INT NOT NULL REFERENCES owners(id),
+  owner_id INT NOT NULL REFERENCES owners(id) ON DELETE CASCADE,
   checked_in BOOLEAN
 );
 
