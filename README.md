@@ -1,4 +1,4 @@
-# Solo_Project_Vet_Practice
+# Paws, Scales & Tails
 
 Project description:
 
