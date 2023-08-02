@@ -42,7 +42,7 @@ Challenges faced and features I hope to implement in the future:
 How to install and run the project:
 1. Open files in your preferred editor e.g. Visual Studio Code
 2. Create database: 'vet_practice.sql' - From `dropdb vet_practice` then run `createdb vet_practice`
-3. Run psql in the terminal to initiate the database `psql -d -f travel_bucket_list.sql`
+3. Run psql in the terminal to initiate the database `psql -d -f vet_practice.sql`
 4. Run console.py file using command `python3 console.py`
 5. Run Flask using command `flask run`
 6. Access webpage using url: http://localhost:4999
